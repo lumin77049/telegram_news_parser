@@ -3,8 +3,8 @@
 news_bot/*
 # Specific Files
 **/.env
-**/.session
-**/.csv
+**/*.session
+**/*.csv
 
 # Whitelists
 !/*
