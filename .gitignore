@@ -1,4 +1,9 @@
 # Directories
-
+.git
+news_bot/*
 # Specific Files
 **/.env
+
+# Whitelists
+!/*
+!/news_bot/src/
