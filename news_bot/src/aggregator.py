@@ -22,7 +22,7 @@ if os.path.isfile("output.csv"):
     os.remove("output.csv")
 
 # Read channels to scan from the config file (one channel per line)
-with open("config") as file:
+with open("news_bot.config") as file:
     while line := file.readline():
         channel_set.add(line.rstrip())
 

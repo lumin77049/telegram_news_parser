@@ -7,27 +7,18 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 bot = telebot.TeleBot(API_KEY)
 
-def post_articles():
-    url_list = pandas.read_csv('article_urls', header=None, index_col=False)
+def post_articles(message):
+    print("posting articles")
+    url_list = pandas.read_csv('article_urls.csv', header=None, index_col=False)
 
-    
-# TODO: fix :(
+    for i in url_list:
+        bot.send_message(message.chat.id, url_list[i]);
+        print("\nposting: " + url_list[i]);
 
-'''
-        for i in post_list:
-            bot.send_message(post_list[i]);
-            print("\nposting: " + post_list[i]);
-'''
-def start_scrape():
+def start_scrape(message):
     print("starting scrape")
-    #os.system("python aggregator.py")
-
-    # debugging:
-    with open("article_urls") as file:
-        while line
-
-
-    post_articles()
+    os.system("python aggregator.py")
+    post_articles(message)
 
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
@@ -36,6 +27,6 @@ def send_welcome(message):
 @bot.message_handler(commands=['scrapenow'])
 def scrapenow(message):
     bot.reply_to(message, "scraping now...")
-    start_scrape()
+    start_scrape(message)
 
 bot.infinity_polling()
